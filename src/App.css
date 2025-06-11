@@ -1,0 +1,19 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 20px; 
+  height: 20px; 
+  border: 0.5px solid #ccc;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: blue;
+}
