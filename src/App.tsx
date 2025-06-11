@@ -1,12 +1,11 @@
 import "./App.css";
-import DataTable from "./components/DataTable/DataTable";
-// import Clock from "./components/Clock/Clock";
+// import DataTable from "./components/DataTable/DataTable";
+import FileUploader from "./components/FileUploader/FileUploader";
 
 function App() {
   return (
     <>
-      {/* <Clock /> */}
-      <DataTable
+      {/* <DataTable
         columns={["Name", "Age", "City", "Occupation", "Joined Date", "Active"]}
         data={[
           ["John Doe", 28, "New York", "Software Engineer", "2020-01-15", true],
@@ -46,6 +45,11 @@ function App() {
           ],
           ["Laura Black", 40, "Denver", "HR Manager", "2016-12-01", true],
         ]}
+      /> */}
+      <FileUploader
+        accept=".jpg,.png"
+        maxSize={5 * 1024 * 1024}
+        onUpload={(files) => console.log(files)}
       />
     </>
   );
