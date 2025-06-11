@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 {
   /* <FileUploader 
   accept=".jpg,.png" 
@@ -16,6 +18,7 @@ export default function FileUploader({
   onUpload,
 }: FileUploaderProps) {
   const filetype = accept.split(",").map((type) => type.trim());
+  const fileRef = useRef<HTMLInputElement | null>(null);
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
     if (!files || files.length === 0) {
@@ -35,6 +38,9 @@ export default function FileUploader({
     if (isAcceptedSize && isAcceptedType) {
       onUpload([file]);
     } else {
+      if (fileRef.current) {
+        fileRef.current.value = "";
+      }
       if (!isAcceptedType) {
         alert(`Please upload a file of an accepted type: ${accept}`);
       } else if (!isAcceptedSize) {
@@ -51,7 +57,12 @@ export default function FileUploader({
       className="flex justify-center p-4  items-center j min-h-screen
     bg-gray-900 text-white font-mono"
     >
-      <input type="file" onChange={handleChange} className="border-2 p-4" />
+      <input
+        type="file"
+        onChange={handleChange}
+        className="border-2 p-4"
+        ref={fileRef}
+      />
     </div>
   );
 }
