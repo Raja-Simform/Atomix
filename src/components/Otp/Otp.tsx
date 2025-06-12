@@ -42,10 +42,6 @@ export default function Otp({ SentOtp }: OtpProps) {
 
   useEffect(() => {
     const currentOtp = otpValues.join("");
-    console.log("Current OTP entered by user:", currentOtp);
-    console.log("Expected OTP (SentOtp prop):", SentOtp);
-    console.log("Lengths match?", currentOtp.length === 4);
-    console.log("Are they equal?", currentOtp === SentOtp);
     if (currentOtp.length === 4) {
       if (currentOtp === SentOtp) {
         setVerified(true);
