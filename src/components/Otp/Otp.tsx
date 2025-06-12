@@ -42,6 +42,10 @@ export default function Otp({ SentOtp }: OtpProps) {
 
   useEffect(() => {
     const currentOtp = otpValues.join("");
+    console.log("Current OTP entered by user:", currentOtp);
+    console.log("Expected OTP (SentOtp prop):", SentOtp);
+    console.log("Lengths match?", currentOtp.length === 4);
+    console.log("Are they equal?", currentOtp === SentOtp);
     if (currentOtp.length === 4) {
       if (currentOtp === SentOtp) {
         setVerified(true);
@@ -72,24 +76,15 @@ export default function Otp({ SentOtp }: OtpProps) {
           className={`border-2 w-20 h-20 text-2xl text-center
             bg-gray-800 rounded-md focus:outline-none 
             ${
-              verified === true && index === 3
+              verified === true
                 ? "border-green-500 focus:ring-green-500"
-                : verified === false && index === 3
+                : verified === false
                 ? "border-red-500 focus:ring-red-500"
                 : "border-gray-700 focus:ring-blue-500"
-            }
-            caret-transparent`}
+            } hover:border-blue-700
+            `}
         />
       ))}
-      {verified !== null && (
-        <p
-          className={`absolute bottom-8 text-lg ${
-            verified ? "text-green-500" : "text-red-500"
-          }`}
-        >
-          {verified ? "OTP Verified!" : "Incorrect OTP"}
-        </p>
-      )}
     </div>
   );
 }
