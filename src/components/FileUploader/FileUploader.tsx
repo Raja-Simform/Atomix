@@ -1,12 +1,5 @@
 import { useRef } from "react";
 
-{
-  /* <FileUploader 
-  accept=".jpg,.png" 
-  maxSize={5 * 1024 * 1024} 
-  onUpload={(files) => console.log(files)} 
-/> */
-}
 interface FileUploaderProps {
   accept: string;
   maxSize: number;
