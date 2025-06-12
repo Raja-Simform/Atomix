@@ -1,12 +1,12 @@
 import "./App.css";
 import Otp from "./components/Otp/Otp";
-// import DataTable from "./components/DataTable/DataTable";
-// import FileUploader from "./components/FileUploader/FileUploader";
+import DataTable from "./components/DataTable/DataTable";
+import FileUploader from "./components/FileUploader/FileUploader";
 
 function App() {
   return (
     <>
-      {/* <DataTable
+      <DataTable
         columns={["Name", "Age", "City", "Occupation", "Joined Date", "Active"]}
         data={[
           ["John Doe", 28, "New York", "Software Engineer", "2020-01-15", true],
@@ -51,7 +51,7 @@ function App() {
         accept=".jpg,.png"
         maxSize={5 * 1024 * 1024}
         onUpload={(files) => console.log(files)}
-      /> */}
+      />
       <Otp SentOtp={"4456"}/>
     </>
   );
