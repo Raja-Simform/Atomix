@@ -10,25 +10,12 @@ export default function Otp({ SentOtp }: OtpProps) {
   const [verified, setVerified] = useState<boolean | null>(null);
   function handleChange(e: React.ChangeEvent<HTMLInputElement>, index: number) {
     const value = e.target.value;
-    if (value.length > 1) {
-      const singleDigit = value[0];
-      setOtpValues((prev) => {
-        const newValues = [...prev];
-        newValues[index] = singleDigit;
-        return newValues;
-      });
-      if (index < 3 && singleDigit) {
-        inputRefs.current[index + 1]?.focus();
-      }
-      return;
-    }
 
     setOtpValues((prev) => {
       const newValues = [...prev];
       newValues[index] = value;
       return newValues;
     });
-
     if (value && index < 3) {
       inputRefs.current[index + 1]?.focus();
     }
